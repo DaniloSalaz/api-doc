@@ -1,0 +1,81 @@
+@import "../main.component.scss";
+.sidebar {
+    max-width: 260px;
+    height: 100%;
+    max-height: 100%;
+    top: 0px;
+    right:0px;
+    z-index: 999;
+    position: fixed;
+    padding: 20px 10px 0 0;
+    transition: left 0.3s ease;
+    
+    .sidebar-header {
+        text-align: center;
+    }
+  
+    .sidebar-menu {
+      
+        ul{
+            list-style-type: none;
+            margin: 0;
+            top:10px;
+            padding: 0 8px 0 0;
+            position: relative;
+        }
+       
+        li {
+            font-size: 15px;
+            padding: 10px 10px 10px 10px;
+            position: relative;
+            transition: all .3s ease-in-out;
+            a{
+                color: #bdbdbd;
+                text-decoration: none;
+            }
+            .active{    
+                color: blue;
+            }
+        }
+        .active{
+            a:before {
+                content: '';
+                border-radius: 50%;
+                left: -3px;
+                top: 20px;
+                background: blue;
+                position: absolute;
+                width: 6px;
+                height: 6px;
+            }
+        }
+        li:hover{
+            a:before {
+                content: '';
+                border-radius: 50%;
+                left: -3px;
+                top: 20px;
+                background: blue;
+                position: absolute;
+                width: 6px;
+                height: 6px;
+            }
+        }
+    }
+}
+
+
+/*------------------color---------------*/
+
+.sidebar {
+    .sidebar-menu {
+        li{
+            
+           
+            border-left: 1px solid $border-sub-menu;
+            h6 {
+                font-size: 15px;
+            }
+        }
+    }
+}

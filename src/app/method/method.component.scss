@@ -1,0 +1,63 @@
+$color-primary: #e6ad45;
+.methodHttp {
+    border: 1px solid;
+    font-size: x-large;
+    padding: 0px 4px 0px 4px;
+}
+.met-post {
+    color:orange;
+}
+.path-endpoint {
+    font-size: x-large;
+    margin-left: 20px;
+}
+.desciption {
+    padding-top: 12px;
+    padding-left: 3em;
+}
+
+.container-fluid {
+    width: 50%;
+}
+
+
+//color types
+.c-type-number {
+    color: red;
+}
+
+.c-type-bool {
+    color: orange;
+}
+.c-type-string {
+    color: green;
+}
+
+.c-type-object {
+    color: blue;
+}
+
+.c-type-array {
+    color: rgb(192, 91, 9);
+}
+.c-type-default {
+    color:rgb(2, 74, 83);
+}
+//color response
+
+.r-4xx {
+    color: orange;
+}
+.r-5xx {
+    color: red;
+}
+.r-2xx {
+    color: green;
+}
+.r-3xx {
+    color: rgb(113, 243, 113);
+}
+// raw
+.alterna-raw {
+    background-color: #edf6f8;
+}

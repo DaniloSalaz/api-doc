@@ -1,0 +1,130 @@
+<nav class="navbar navbar-light bg-dark navbar-expand-lg" >
+    <a href="#" class="navbar-brand" style="color: #e79a0c;">OPOSSUM</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" style="color: #ffffff;" href="#">APIs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" style="color: #c2c1c1;" href="#">Models</a>
+        </li>
+      </ul>
+    </div>
+    
+</nav>
+<div class="input-group mb-3 container" style="padding: 20px;">
+ 
+  <div class="input-group">
+    <input type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+    <div class="input-group-append">
+      <button type="button" class="btn btn-outline-secondary">Buscar</button>
+      
+    </div>
+  </div>
+<div class="container" style="padding-top: 20px;">
+    
+    <div class="row">
+        <div class="col-4">
+              <ul class="list-group" *ngFor="let api of APIs">
+                <li class="list-group-item" [ngClass]=" api.view ? 'active': ''" (click)="onclickAPI(api.nombre)">{{api.nombre }}</li>
+              </ul>
+        </div>
+        <div class="col-8" >
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h6 data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <button class="btn btn-primary text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                          POST
+                          </button> 
+                          <span class="badge badge-light" style="margin-left: 20px;">{{"/api/producto"}}</span> 
+                          
+                        </h6>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                      <h6> Descripción del API</h6>
+                      <p style="padding-left: 20px;">Consultar el producto por id</p>
+                      <hr>
+                      <h6>Parametros:</h6>
+                      <p style="font-size: small; padding-left: 20px;"> <span style="color: #e79a0c; cursor: pointer;">Ejemplo Body</span>  | <span style="cursor: pointer;">Model</span> </p>
+                      <textarea  name="textarea" rows="10" cols="50" style="background-color: rgba(250, 250, 250, 0.863); border-radius: 10px; margin-left: 20px;" >
+                       {{'
+                       {
+                        "categoria": {
+                          "categoria": "string",
+                          "id": 0
+                        },
+                        "costo": 0,
+                        "id": 0,
+                        "nombre": "string",
+                        "stock": 0
+                      }
+                       '}}
+                      </textarea>
+                      <hr>
+                      <h6>Response:</h6>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h6>
+                        <button class="btn btn-primary text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            PUT 
+                          </button> 
+                          <span class="badge badge-light" style="margin-left: 20px;">{{"/api/producto/{idProducto}"}}</span> 
+                          
+                        </h6>
+                    
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                      
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                      <h6>
+                    <button class="btn btn-primary text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      GET
+                      </button>  
+                      <span class="badge badge-light" style="margin-left: 20px;">{{"/api/producto/{idProducto}"}}</span>
+                      
+                    </h6>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+
+    <div class="row" style="padding-top: 20px;">
+        <div class="col-12">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+    </div>
+</div>

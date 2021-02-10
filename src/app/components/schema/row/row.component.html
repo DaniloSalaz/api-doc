@@ -1,0 +1,18 @@
+<div style="display:flex">
+    <div style="cursor: pointer; flex: 0.1;">
+        <i *ngIf="prop.ref" class="fa fa-caret-down" style="cursor: pointer;"></i>
+        <i *ngIf="prop.enum || (prop.items && prop.items.isRef)" class="fa fa-caret-down" style="cursor: pointer;"></i>
+    </div>
+    <div style="flex: 2;">
+        <span>{{prop.name}}</span>
+    </div>
+    <div style="flex: 1;">
+        <span *ngIf="prop.type && !prop.items"
+            [ngClass]="colorbyType(prop.type)">{{prop.type}}</span>
+        <span *ngIf="prop.type && prop.items && prop.items.type"
+            [ngClass]="colorbyType(prop.type)">{{prop.type + '[' + prop.items.type +
+            ']'}}</span>
+        <!-- <span *ngIf="prop.value.type && prop.value.items && prop.value.items['$ref']"
+            [ngClass]="colorbyType(prop.value.type)" [innerHTML]="getNameObject(prop.value.items['$ref'], true)"></span> -->
+    </div>
+</div>

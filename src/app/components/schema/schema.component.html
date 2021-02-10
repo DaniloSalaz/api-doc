@@ -1,0 +1,70 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link" [ngClass]="{'active': viewerSchema.schema}" (click)="changeViwer('schema')"
+            style="cursor: pointer;">Schema</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" [ngClass]="{'active': viewerSchema.json}" (click)="changeViwer('json')"
+            style="cursor: pointer;">Json</a>
+    </li>
+</ul>
+<div *ngIf="schema && viewerSchema.schema">
+    <li class="list-group-item color-object" *ngIf="schema && !isArray">Object: {{schema.name}}</li>
+    <li class="list-group-item color-object" *ngIf="schema && isArray">Array [ {{schema.name}} ]</li>
+    <ul id="schema" class="list-group">
+        <div *ngFor="let prop of schema.properties ; let i = index">
+            <li class="list-group-item" [ngClass]="{'alterna-raw': i %2 == 0? true:false}" (click)=showReference(prop)>
+                <app-row [prop]="prop"></app-row>
+            </li>
+            <div *ngIf="prop.ref && prop.show">
+                <div class="list-group" *ngFor="let p of schemas[prop.ref].properties">
+                    <li class="list-group-item" style="padding-left: 3em;">
+                        <app-row [prop]="p"></app-row>
+                    </li>
+                </div>
+            </div>
+            <div *ngIf="prop.items && prop.items.isRef && prop.show">
+                <div class="list-group" *ngFor="let p of schemas[prop.items.type].properties">
+                    <li class="list-group-item" style="padding-left: 3em;">
+                        <app-row [prop]="p"></app-row>
+                    </li>
+                </div>
+            </div>
+            <div *ngIf="prop.enum && prop.show">
+                <div class="list-group" *ngFor="let en of prop.enum">
+                    <li class="list-group-item" style="padding-left: 3em;">
+                        <app-row [prop]="parseStringToProperty(en)"></app-row>
+                    </li>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div *ngFor="let prop of schemaProperties | keyvalue ; let i = index">
+
+            <li class="list-group-item" [ngClass]="{'alterna-raw': i %2 == 0? true:false}" (click)=showObject(prop.key)>
+                <app-row [prop]="prop"></app-row>
+            </li>
+
+            <div *ngIf="prop.value['$ref'] && schemaProperties[prop.key].show">
+                <div class="list-group" *ngFor="let prop of getSchemaProperties(prop.value['$ref']) | keyvalue">
+                    <li class="list-group-item" style="padding-left: 3em;">
+                        <app-row [prop]="prop"></app-row>
+                    </li>
+                </div>
+            </div>
+            <div *ngIf="prop.value.items && prop.value.items['$ref'] && schemaProperties[prop.key].show">
+                <div class="list-group" *ngFor="let prop of getSchemaProperties(prop.value.items['$ref']) | keyvalue">
+                    <li class="list-group-item" style="padding-left: 3em;">
+                        <app-row [prop]="prop"></app-row>
+                    </li>
+                </div>
+            </div>
+
+        </div> -->
+    </ul>
+</div>
+
+<div *ngIf="viewerSchema.json">
+    <pre><code *ngIf="objectoJsonExample" [innerHTML]="objectoJsonExample"></code></pre>
+
+</div>

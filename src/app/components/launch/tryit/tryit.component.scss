@@ -1,0 +1,85 @@
+
+.header{
+    list-style: none;
+    cursor: pointer;
+    li{
+        float: left;
+        margin: 20px; 
+    }
+    .active {
+
+        border-bottom: solid 3px green;
+    }
+}
+textarea{
+    width: 100%;
+    height: 300px;
+    
+    
+}
+.content-response{
+    span{
+        padding-right: 1em; 
+        margin-left: auto; 
+        margin-right: 0;
+         float: right;
+    }
+    i{
+        margin: 20px 10px ;
+    }
+}
+
+//---------------------------------- Theme color tryit------------------------
+
+$title_color: #dbd9d9;
+$font_color: #ffffff;
+$input_color: #575757;
+// $back_color: #3c515c;
+$border_color: #5e5e5e;
+$back_color: #222;
+
+
+.tryit, textarea, table {
+    background-color: $back_color;
+    color: $font_color;
+}
+
+.content-response{
+    border: solid 1px $border_color;
+    pre{
+        background-color: $back_color;
+        color: $font_color;
+    }
+}
+textarea {
+    border: solid 1px $border_color;
+    color: #449b44;
+    
+}
+textarea:focus, input:focus{
+    background-color: #ffffff;
+    color: #000000;
+}
+
+input{
+    background-color: $input_color;
+    border-color: $input_color;
+    color: $font_color;
+}
+.title-body, .title-response, .title-header{
+    color: $title_color;
+}
+
+//color response
+.r-4xx {
+    color: orange;
+}
+.r-5xx {
+    color: red;
+}
+.r-2xx {
+    color: green;
+}
+.r-3xx {
+    color: rgb(113, 243, 113);
+}

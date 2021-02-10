@@ -1,0 +1,25 @@
+<ul id="schema" class="list-group">
+    <li class="list-group-item">
+        <div style="display: flex; justify-content: center; ">
+            <div style="flex: 1; font-weight: bold;"> Name</div>
+            <div style="flex: 1; font-weight: bold;">In</div>
+            <div style="flex: 1; font-weight: bold;">Type</div>
+            <div style="flex: 1; font-weight: bold;">Format</div>
+            <div style="flex: 2; font-weight: bold;">Description</div>
+            <div style="flex: 1; font-weight: bold; text-align: center;">Required</div>
+        </div>
+    </li>
+    <li class="list-group-item" *ngFor="let pa of params; let i = index" [ngClass]="{'alterna-raw': i %2 == 0? true:false}">
+        <div style="display: flex; justify-content: center; ">
+            <div style="flex: 1;">{{pa.name}}</div>
+            <div style="flex: 1;">{{pa.in}}</div>
+            <div style="flex: 1;">{{pa.schema.type}}</div>
+            <div style="flex: 1;">{{pa.schema.format}}</div>
+            <div style="flex: 2;">{{pa.description}}</div>
+            <div style="flex: 1; position: relative;">
+                <i *ngIf="pa.required" class="fa fa-check" style="cursor: pointer; color: green; position: absolute; left: 50%;"></i>
+                <i *ngIf="!pa.required" class="fa fa-times" style="cursor: pointer; color: red; position: absolute; left: 50%;"></i>
+            </div>
+        </div>
+    </li>
+</ul>

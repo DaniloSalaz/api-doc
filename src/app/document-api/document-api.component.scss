@@ -1,0 +1,10 @@
+$color-primary: #e6ad45;
+$color-sec: #fae4bb;
+.list-group-item:hover {
+    background-color: $color-sec;
+    cursor: pointer;
+}
+.active {
+    background-color:$color-primary;
+    border-color: #fcc35a;
+}

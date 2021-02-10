@@ -1,0 +1,18 @@
+
+<div class="page-wrapper" >
+    <app-sidebar></app-sidebar>
+    
+<main class="page-content" style="scroll-behavior: smooth; overflow-y: scroll; display: block; height: 100%;">
+        
+        <div style="top: 100px; margin: auto; padding-right: 200px; padding-bottom: 20px; width: 70%;" >
+            <section *ngFor="let path of paths" id="{{  path.path + path.method }}" style="border-top: solid "  (visibilityChange)="doSomethingOnInternalScroll($event)">
+                    <br>
+                    <app-method-http   *ngIf="buildComponentMethod(path.path, path.method, path.objMethod)" [objectParams]="buildComponentMethod(path.path, path.method, path.objMethod)"></app-method-http>
+                    <br>
+            </section>
+            
+        </div>
+    
+</main>
+<app-sub-sidebar></app-sub-sidebar>
+</div>

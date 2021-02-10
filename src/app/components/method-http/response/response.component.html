@@ -1,0 +1,20 @@
+<div style="display: flex; border: solid 1px rgba(0,0,0,.125);">
+    <div style="flex: 1;">
+        <ul class="list-group list-group-flush" >
+            <div *ngFor="let res of responsesObject | keyvalue ; let i = index">
+                <li class="list-group-item" style="padding-left: 2em;"  [ngClass]="{'active':res.value.show}" (click)="showResponse(res.key)">
+                    <i class="fa fa-circle" style="padding-right: 1em;" [ngClass]="colorbyResponse(res.key)"></i>
+                    <span>{{res.key}}</span>
+                </li>
+            </div>
+            
+        </ul>
+    </div>
+    <div style="flex: 4; border-left: solid 1px rgba(0,0,0,.125);">
+        <div *ngIf="responseCurrency" style="margin: 2em;">
+            <span>{{responseCurrency.description}}</span>
+            <app-schema *ngIf="nameSchema || objectSchema" [name]="nameSchema" [objectSchema]="objectSchema"></app-schema>
+            
+        </div>
+    </div>
+</div>

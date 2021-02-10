@@ -1,0 +1,55 @@
+<div class="tryit">
+  <!-- header -->
+  <nav class="header">
+    <li class="title-header" *ngFor="let menu of menuTry" [ngClass]="{'active': menu.active}" (click)="changeMenu(menu)">
+      {{menu.title}}
+    </li>
+  </nav>
+
+  <!-- Params and header -->
+  <div>
+    <table class="table table-dark ">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">Key</th>
+          <th scope="col">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of currentItemParHea.values">
+          <td (click)="changeSend(item)"><input type="checkbox" [(ngModel)]="item.isSend"></td>
+          <td><input type="text" class="form-control" placeholder="key" [(ngModel)]="item.key" ></td>
+          <td><input type="text" class="form-control" placeholder="value" [(ngModel)]="item.value"></td>
+     
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Request Body -->
+  
+  <div class="request-body">
+    <h6 class="title-body">Body</h6>
+    <textarea *ngIf="objectoJsonExample" [(ngModel)]="objectoJsonExample">
+    </textarea>
+  </div>
+
+  <!-- Response -->
+  <hr>
+  <div class="response">
+    <h6 class="title-response">Response</h6>
+   
+    <div class="content-response">
+      
+      <span><i class="fa fa-circle r-2xx"></i>
+        OK
+      </span>
+      <pre><code>
+      hola como
+      estas
+    </code></pre>
+
+    </div>
+  </div>
+</div>

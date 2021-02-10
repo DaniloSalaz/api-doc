@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div>
+        <h2><span class="badge" [ngClass]="colorEndPoint(objectParams.methodName)" style="padding-left: 5px; ">{{objectParams.methodName}}</span>
+            {{objectParams.pathEndPoint}} </h2>
+            <hr>
+            <p>{{objectParams.objPath.summary}}</p>
+    </div>
+    <br>
+    <div>
+        <h4>Parameters</h4>
+        <hr>
+        <p *ngIf="!objectParams.objPath.parameters">No parameters</p>
+        <app-parameters *ngIf="objectParams.objPath.parameters" [params]="paramsPath"></app-parameters>
+    </div>
+    <br>
+    <div *ngIf="objectParams.objPath.requestBody">
+        <h4>Request Body</h4>
+        <hr>
+        
+        <app-request-body *ngIf="requestBody" [requestBody]="requestBody"></app-request-body>
+        
+    </div>
+    <br>
+    <div>
+        <h4>Response</h4>
+        <hr>
+        <app-response *ngIf="responsesObject" [responsesObject]="responsesObject"></app-response>
+    </div>
+</div>
